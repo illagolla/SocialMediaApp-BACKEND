@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema(
       min: 2,
       max: 50,
     },
-
     lastName: {
       type: String,
       required: true,
@@ -37,11 +36,10 @@ const UserSchema = new mongoose.Schema(
     location: String,
     occupation: String,
     viewedProfile: Number,
-    impressions: String,
+    impressions: Number,
   },
   { timestamps: true }
 );
 
 const User = mongoose.model("User", UserSchema);
-
 export default User;

@@ -15,13 +15,11 @@ export const createPost = async (req, res) => {
       userPicturePath: user.picturePath,
       picturePath,
       likes: {},
-      Comments: [],
+      comments: [],
     });
-
     await newPost.save();
 
     const post = await Post.find();
-
     res.status(201).json(post);
   } catch (err) {
     res.status(409).json({ message: err.message });
@@ -68,7 +66,7 @@ export const likePost = async (req, res) => {
       { new: true }
     );
 
-    req.status(200).json(updatedPost);
+    res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
